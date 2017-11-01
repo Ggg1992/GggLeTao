@@ -16,11 +16,11 @@ const pool  = mysql.createPool({
 // 如果用户传递了两个参数，那么第一个就是 SQL 操作字符串， 第二个就是回调函数
 // 如果是三个参数：第一个SQL字符串，第二个数组，第三个参数回调函数
 exports.query = function() {
-    let args = arguments;
+    var args = arguments;
 
-    let sqlStr = args[0];
-    let params = [];
-    let callback;
+    var sqlStr = args[0];
+    var params = [];
+    var callback;
 
     if (args.length === 2 && typeof args[1] === 'function') {
         callback = args[1];

@@ -33,7 +33,7 @@
         </div>
       </li>
       <li>
-        <a href="#">
+        <a href="javascript:;">
           <span class='glyphicon glyphicon-tags'></span>商品管理</a>
       </li>
     </ul>
@@ -49,10 +49,12 @@
   </div>
   <!--头部结束-->
   <div class="container-fluid">
+
     <ol class="breadcrumb">
       <li><a href="#">管理系统</a></li>
       <li class="active">商品管理</li>
     </ol>
+
     <button class='product_add btn btn-default mb20'>添加商品</button>
     <table class="table table-hover table-bordered">
       <thead>
@@ -67,7 +69,7 @@
       </tr>
       </thead>
       <tbody>
-      <!--啊啊个坑-->
+<!--挖个坑-->
       </tbody>
     </table>
     <div class="text-right">
@@ -93,7 +95,7 @@
   </div>
 </div>
 
-<div class="modal fade" id="ProductModal">
+<div class="modal fade" id="productModal">
   <div class="modal-dialog modal-md">
     <div class="modal-content">
       <div class="modal-header">
@@ -106,7 +108,7 @@
             <div class="dropdown">
               <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
                 <span class='dropdown-text'>请选择二级分类</span>
-                <input type="hidden" name="brandId" id="brandId">
+                <input type="hidden" class="form-control" name="brandId" id="brandId">
                 <span class="caret"></span>
               </button>
               <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
@@ -117,9 +119,8 @@
           <div class="form-group">
             <input type="text" class="form-control" id="proName" name='proName' placeholder="请输入商品名称">
           </div>
-
           <div class="form-group">
-            <textarea id='proDesc' name='proDesc' class="form-control" rows="3" placeholder='请输入商品描述'></textarea>
+            <textarea class="form-control" rows="3" id='proDesc' name='proDesc' placeholder='请输入商品描述'></textarea>
           </div>
           <div class="form-group">
             <input type="text" class="form-control" id="num" name='num' placeholder="请输入商品库存">
@@ -131,7 +132,7 @@
             <input type="text" class="form-control" id="oldPrice" name='oldPrice' placeholder="请输入商品原价">
           </div>
           <div class="form-group">
-            <input type="text" class="form-control" id="size" name='size' placeholder="请输入商品尺码">
+            <input type="text" class="form-control" id="size" name='size' placeholder="请输入商品尺寸">
           </div>
           <div class='form-group'>
             <div class='fileupload_box'>
@@ -141,22 +142,22 @@
           </div>
           <div class='form-group img_box'>
             <!--<img width='100' height='100' src="images/none.png" alt="">-->
-            <!--<img width='100' height='100' src="images/none.png" alt="">-->
-            <!--<img width='100' height='100' src="images/none.png" alt="">-->
-            <input type="hidden" name="brandLogo" id="brandLogo">
+            <input type="hidden" name="productLogo" id="productLogo">
+            <input type="hidden" name='hot' id='hot' value='1'>
+            <input type="hidden" name='statu' id='statu' value='1'>
           </div>
-          <input type="hidden" name='statu'  value='1'>
         </form>
       </div>
       <div class="modal-footer">
         <button type="button" form="form" class="btn btn-default" data-dismiss="modal">取消</button>
-        <button type="submit" form="form" class="btn btn-primary product_btn">确定</button>
+        <button type="submit" form="form" class="btn btn-primary">确定</button>
       </div>
     </div>
   </div>
 </div>
-</div>
-<script type='text/html' id='tpl1'>
+
+
+<script type='text/html' id='tpl'>
   {{each rows v i}}
   <tr>
     <td>{{(page-1)*size+i+1}}</td>
@@ -164,22 +165,25 @@
     <td>{{v.proDesc}}</td>
     <td>{{v.num}}</td>
     <td>{{v.size}}</td>
-    <td>{{v.statu===1?'已上架':"已下架"}}</td>
+    <td>{{v.statu===1?"已上架":"已下架"}}</td>
     <td>
       {{if v.statu===1}}
-      <button type="button" class="btn btn-danger" data-dismiss="modal">已下架</button>
+      <button type="submit" class="btn btn-primary" data-dismiss="modal">已下架</button>
       {{else if v.statu===0}}
-      <button type="button" class="btn btn-primary" data-dismiss="modal">已上架</button>
+      <button type="submit" class="btn btn-danger">已上架</button>
       {{/if}}
     </td>
   </tr>
   {{/each}}
 </script>
-<script type='text/html' id=tpl2>
+
+<script type='text/html' id='tpl1'>
   {{each rows v i}}
-  <li role="presentation"><a role="menuitem" tabindex="-1" href="#" data-id='{{v.id}}'>{{v.brandName}}</a></li>
+  <li role="presentation"><a role="menuitem" tabindex="-1" href="#" data-id="{{v.id}}">{{v.brandName}}</a></li>
   {{/each}}
 </script>
+
+
 
 <script src='lib/jquery/jquery.js'></script>
 <script src='lib/bootstrap/js/bootstrap.js'></script>
