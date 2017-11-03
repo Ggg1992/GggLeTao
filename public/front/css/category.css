@@ -1,0 +1,41 @@
+.lt_category_l{
+  width: 90px;
+  height: 100%;
+  float: left;
+  background: #ccc;
+  position: relative;
+}
+.lt_category_l li{
+  height: 50px;
+  line-height: 50px;
+  border-right:1px solid #666;
+  border-bottom: 1px solid #666;
+  text-align: center;
+}
+.lt_category_l li.now {
+  border-right: none;
+  background: #fff;
+}
+.lt_category_l li a{
+  color: #666;
+}
+
+.lt_category_r{
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+}
+.lt_category_r li{
+  width: 33.33%;
+  float: left;
+  text-align: center;
+}
+.lt_category_r li img{
+  width: 62px;
+  height: 62px;
+  margin: 0 auto;
+}
+.lt_category_r .info{
+  margin-top: 10px;
+  margin-left: 10px;
+}
