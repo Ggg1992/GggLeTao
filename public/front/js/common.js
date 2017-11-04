@@ -15,10 +15,12 @@
     },
     getParam:function(key){
       return  this.getParamObj()[key]
+    },
+    checkLogin:function(data){
+      if(data.error==400){
+        location.href='login.html?retUrl='+location.href;
+      }
     }
   }
-  //var result=getParam();
-  // console.log(result);
-  //var key=tools.param(key);
-  //$('.search_text').val(key);
+
 

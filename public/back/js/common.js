@@ -5,7 +5,7 @@ if(location.href.indexOf("login.html")<0){
     url:'/employee/checkRootLogin',
     success:function (data) {
         if(data.error===400){
-          location.href='login.html';
+          location.href='login.js';
         }
     }
 })
@@ -67,7 +67,7 @@ $(".child").prev().on('click',function () {
         // console.log(data);
         if(data.success){
           // console.log(location.href);
-          location.href='login.html';
+          location.href='login.js';
         }
       }
     })

@@ -60,7 +60,7 @@ $('[data-logout]').on('click',function(){
                 setTimeout(function(){
                     if(data.success){
                         /*7.退出成功*/
-                        location.href = 'login.html';
+                        location.href = 'login.js';
                     }
                 },500);
             }

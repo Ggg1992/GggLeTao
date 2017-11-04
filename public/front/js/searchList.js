@@ -3,17 +3,13 @@ mui('.mui-scroll-wrapper').scroll({
   indicators:false
 })
 
-
-
-
-
   var data={
     proName:"",
   price:"",
     num:"",
     page:1,
     pageSize:10,
-  }
+  };
 function render(){
   $.ajax({
     type:"get",
@@ -34,11 +30,8 @@ function render(){
   $('.search_text').val(key);
   data.proName=key;
   render(data);
-
-
   $(".search_btn").on("click",function(){
     //console.log(1);
-
     $(".lt_sort a").removeClass('now');
     $('.lt_sort span').removeClass('fa-angle-up').addClass('fa-angle-down');
     data.price='';
@@ -53,7 +46,6 @@ function render(){
     data.proName=key;
     render();
   })
-
 //排序
     $(".lt_sort a[data-type]").on('click',function(){
       //console.log(1);
@@ -76,5 +68,7 @@ function render(){
 
       data[type]=value;
       render(data);
-  })
+  });
+
+  $("")
 })
