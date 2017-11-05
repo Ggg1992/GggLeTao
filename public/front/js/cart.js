@@ -110,6 +110,9 @@ $("#OA_task_2").on('change','.ck',function(){
   if(!this.checked){
     total-=$(this).data("num")*$(this).data('price');
   }
+  if($(":checked").length==0){
+   total=0;
+  }
 
   $(".lt_total span").html(total);
 
